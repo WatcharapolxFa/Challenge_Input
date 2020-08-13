@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#define _CRT_SECURE_NO_WARNINGS
 int num1 = 0, num2 = 0;   // In put Number 
 
 float average = 0, SD = 0, sum = 0, nSum = 0;   // SD = Standard Deviation 
