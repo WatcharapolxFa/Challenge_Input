@@ -2,7 +2,7 @@
 #include<math.h>
 int num1 = 0, num2 = 0, number = 0, sumavg = 0;   // In put Number 
 
-float average = 0, sum = 0, nSum = 0, sumx = 0, sumz = 0, SD = 0, nsumSD = 0;   // SD = Standard Deviation 
+float average = 0, sum = 0, nSum = 0, sumx = 0, sumz = 0, SD = 0;   // SD = Standard Deviation 
 
 
 float Average(float xsum, float xnsum) // xsum = sum xnsum = nsum
@@ -18,10 +18,9 @@ float Average(float xsum, float xnsum) // xsum = sum xnsum = nsum
 
 float standardDeviation(float xnumber, float nSumm)
 {
-    float ans;
-    ans = sqrt((xnumber / nSumm - 1));
-
-
+    float ans, Ans;
+    Ans = xnumber / nSumm - 1;
+    ans = sqrt(Ans);
     return ans;
 
 
@@ -32,7 +31,7 @@ float standardDeviation(float xnumber, float nSumm)
 int main()
 {
 
-    if (scanf_s("%d %d", &num1, &num2))
+    if (scanf("%d %d", &num1, &num2))
     {
         if (num1 < num2)
         {
@@ -51,15 +50,15 @@ int main()
             for (;number <= num2; number++)
             {
                 sumz = (number - average) * (number - average);
-                sumx = sumx + sumz;
-                nsumSD = nsumSD + 1;
+                sumx = sumz;
             }
-            printf("\n Standard Deviation= %.2f %.2f ", nsumSD, SD);
-            SD = standardDeviation(sumx, nsumSD);
+
+            SD = standardDeviation(sumx, nSum);
             printf("\n Standard Deviation= %.2f ", SD);
         }
         else if (num1 > num2)
         {
+            number = num1;
             for (;num1 >= num2; num1--)
             {
                 printf(" %d ", num1);
@@ -68,6 +67,14 @@ int main()
             }
             average = Average(sum, nSum);
             printf("\n Average= %.1f ", average);
+
+            for (;number >= num2; number--)
+            {
+                sumz = (number - average) * (number - average);
+                sumx = sumz;
+            }
+            SD = standardDeviation(sumx, nSum);
+            printf("\n Standard Deviation= %.2f ", SD);
         }
         else
         {
