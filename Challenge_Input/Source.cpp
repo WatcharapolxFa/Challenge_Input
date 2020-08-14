@@ -32,7 +32,7 @@ float standardDeviation(float xnumber, float nSumm)
 int main()
 {
 
-    if (scanf("%d %d", &num1, &num2))
+    if (scanf_s("%d %d", &num1, &num2))
     {
         if (num1 < num2)
         {
